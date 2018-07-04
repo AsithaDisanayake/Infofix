@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report18" language="groovy" pageWidth="421" pageHeight="595" columnWidth="381" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d78b3c2a-b26a-4473-b388-d67e4d55a588">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="54"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="dataset1" uuid="47f0b0c0-7f57-40be-bbe9-e26093f8a802"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     customer.`cusid` AS customer_cusid,
+     customer.`fname` AS customer_fname,
+     customer.`lname` AS customer_lname,
+     customer.`mobile` AS customer_mobile,
+     customer.`no` AS customer_no,
+     customer.`street` AS customer_street,
+     customer.`city` AS customer_city,
+     invoice.`invoiceno` AS invoice_invoiceno,
+     invoice.`cusid` AS invoice_cusid,
+     invoice.`itemid` AS invoice_itemid,
+     invoice.`itemname` AS invoice_itemname,
+     invoice.`category` AS invoice_category,
+     invoice.`sup` AS invoice_sup,
+     invoice.`qty` AS invoice_qty,
+     invoice.`tot` AS invoice_tot,
+     invoice.`invodate` AS invoice_invodate,
+     invoicesummery.`invoiceno` AS invoicesummery_invoiceno,
+     invoicesummery.`invototal` AS invoicesummery_invototal,
+     invoicesummery.`balance` AS invoicesummery_balance,
+     invoicesummery.`cash` AS invoicesummery_cash,
+     invoicesummery.`cheque` AS invoicesummery_cheque,
+     currentuser.`username` AS currentuser_username,
+     currentuser.`invoiceno` AS currentuser_invoiceno
+FROM
+     `customer` customer,
+     `invoice` invoice,
+     `invoicesummery` invoicesummery,
+     `currentuser` currentuser
+WHERE
+      invoice.`invoiceno`= $P{parameter1}
+&&
+invoicesummery.`invoiceno`= $P{parameter1}
+&&
+customer.`cusid`=invoice.`cusid`
+&&
+currentuser.`invoiceno`= $P{parameter1}]]>
+	</queryString>
+	<field name="customer_cusid" class="java.lang.String"/>
+	<field name="customer_fname" class="java.lang.String"/>
+	<field name="customer_lname" class="java.lang.String"/>
+	<field name="customer_mobile" class="java.lang.String"/>
+	<field name="customer_no" class="java.lang.String"/>
+	<field name="customer_street" class="java.lang.String"/>
+	<field name="customer_city" class="java.lang.String"/>
+	<field name="invoice_invoiceno" class="java.lang.String"/>
+	<field name="invoice_cusid" class="java.lang.String"/>
+	<field name="invoice_itemid" class="java.lang.String"/>
+	<field name="invoice_itemname" class="java.lang.String"/>
+	<field name="invoice_category" class="java.lang.String"/>
+	<field name="invoice_sup" class="java.lang.Double"/>
+	<field name="invoice_qty" class="java.lang.Double"/>
+	<field name="invoice_tot" class="java.lang.Double"/>
+	<field name="invoice_invodate" class="java.sql.Date"/>
+	<field name="invoicesummery_invoiceno" class="java.lang.String"/>
+	<field name="invoicesummery_invototal" class="java.lang.Double"/>
+	<field name="invoicesummery_balance" class="java.lang.Double"/>
+	<field name="invoicesummery_cash" class="java.lang.Double"/>
+	<field name="invoicesummery_cheque" class="java.lang.Double"/>
+	<field name="currentuser_username" class="java.lang.String"/>
+	<field name="currentuser_invoiceno" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="138" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="288" y="3" width="81" height="23" forecolor="#736343" uuid="a4574b00-aea5-48d7-8fe5-e0ef4370d500"/>
+				<textElement>
+					<font fontName="Cambria" size="15"/>
+				</textElement>
+				<text><![CDATA[INVOICE ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="335" y="26" width="43" height="15" uuid="28e790bc-8799-406d-834a-60569d13b554"/>
+				<textElement>
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoice_invoiceno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="248" y="46" width="87" height="15" forecolor="#736343" uuid="61096146-2628-46d5-acef-c1f4abb0a070"/>
+				<textElement>
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<text><![CDATA[Customer ID :-]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="335" y="46" width="43" height="15" uuid="8d38629e-fcb2-408d-8694-fa8440b909dc"/>
+				<textElement>
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_cusid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="301" y="26" width="34" height="20" forecolor="#73633F" uuid="0196d1ec-e61e-4a31-8d33-139be0d99a10"/>
+				<textElement>
+					<font fontName="Cambria" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO :-]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="253" y="67" width="55" height="16" forecolor="#736343" uuid="ff599c62-9d8e-4c89-b3e5-8acb01b410ff"/>
+				<textElement textAlignment="Right">
+					<font fontName="Cambria" size="10" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement style="Column header" x="321" y="65" width="43" height="16" forecolor="#736343" uuid="d56a7431-3ea6-4b62-96ff-653e9c405d29"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Cambria" size="10" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="321" y="93" width="48" height="15" forecolor="#736343" uuid="8c88abcf-1f31-4fe8-85c8-262b3cfff026"/>
+				<textElement>
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{currentuser_username}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="285" y="93" width="34" height="15" forecolor="#736343" uuid="86c86d2b-47a7-4ca6-a53f-b78a24ac8ced"/>
+				<textElement>
+					<font fontName="Cambria"/>
+				</textElement>
+				<text><![CDATA[Ref  :-]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="84" splitType="Prevent">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="-9" width="378" height="1" uuid="01b30360-b0e7-43d1-b2f3-a28c75cfa0c8"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="3" y="5" width="67" height="16" forecolor="#333333" uuid="43445d9d-f8bb-405c-b908-53252e3807dd"/>
+				<textElement>
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<text><![CDATA[Customer :-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="3" y="67" width="46" height="15" forecolor="#736343" uuid="58882001-93f7-437b-8f0b-9a22cf8dfca8"/>
+				<textElement>
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<text><![CDATA[Item Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="48" y="67" width="63" height="15" forecolor="#736343" uuid="2abc2044-175d-453b-a02c-3ed0b4303448"/>
+				<textElement>
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="214" y="67" width="54" height="15" forecolor="#736343" uuid="8aea693a-520c-4614-affc-b4ce66b89cd1"/>
+				<textElement>
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<text><![CDATA[Unit Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="272" y="67" width="49" height="15" forecolor="#736343" uuid="a019a287-b1b9-4246-a27f-08ebb1bd8e64"/>
+				<textElement>
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<text><![CDATA[Qty.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="340" y="67" width="30" height="15" forecolor="#736343" uuid="153b0207-9d50-4f2f-a222-0db4f3525b3b"/>
+				<textElement>
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="3" y="20" width="108" height="15" uuid="d90109d8-91a9-4709-923a-3c7b8d85ecdd"/>
+				<textElement>
+					<font fontName="Cambria" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_fname}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="271" y="1" width="98" height="15" uuid="33cad257-e91b-42ec-87a7-0b848547e2c8"/>
+				<textElement>
+					<font fontName="Cambria" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_no}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="271" y="17" width="99" height="15" uuid="490c270f-8c61-42a8-999d-861db2a21410"/>
+				<textElement>
+					<font fontName="Cambria" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_street}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="271" y="32" width="98" height="15" uuid="d2d42fb2-5472-4487-8205-d44c4b2e9189"/>
+				<textElement>
+					<font fontName="Cambria" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_city}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="271" y="47" width="98" height="15" uuid="7dbe8aad-71da-41f6-8283-ed6179432216"/>
+				<textElement>
+					<font fontName="Cambria" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_mobile}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="178" y="0" width="90" height="20" uuid="83dad8e6-af97-4cdd-837a-a2c6807d3148"/>
+				<textElement>
+					<font fontName="Cambria" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contact Details:-]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="65" width="376" height="1" uuid="c6679475-c66d-4448-93b6-edf71ed64efd"/>
+			</line>
+			<line>
+				<reportElement x="7" y="82" width="373" height="1" uuid="3678514f-7265-471f-88a8-06fe92e28e79"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="-3" y="0" width="382" height="15" uuid="821244ca-9aaa-4342-b7b7-b91d32d99d88"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="6" y="0" width="45" height="15" uuid="e82f2bf1-1a99-4de5-8401-3b6486ea69c8"/>
+					<textElement>
+						<font fontName="Cambria" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{invoice_itemid}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="51" y="0" width="165" height="15" uuid="e1d4fb60-4689-4e2b-b228-39afc2c55477"/>
+					<textElement>
+						<font fontName="Cambria" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{invoice_itemname}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="222" y="0" width="50" height="15" uuid="1b78c4f1-0c2f-4d59-b9f0-f0bd9fe963cc"/>
+					<textElement>
+						<font fontName="Cambria" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{invoice_sup}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="277" y="0" width="43" height="15" uuid="fb31f088-f894-4a5c-843b-41c31fef78a6"/>
+					<textElement>
+						<font fontName="Cambria" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{invoice_qty}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="339" y="0" width="43" height="15" uuid="ceb2671d-36be-4c94-9c32-d1b3c82a36cd"/>
+					<textElement>
+						<font fontName="Cambria" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{invoice_tot}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="95" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="3" y="0" width="375" height="1" uuid="af83b5ad-7a1b-43dd-9750-bd6107ca3070"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="269" y="12" width="46" height="15" forecolor="#736343" uuid="6b7fded5-f982-4876-bc5a-16b0a6ac990f"/>
+				<textElement>
+					<font fontName="Cambria" size="9"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="331" y="12" width="48" height="15" uuid="c2caf6bc-6f00-4a13-836d-e9403bed37d3"/>
+				<textElement>
+					<font fontName="Cambria" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoicesummery_invototal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="268" y="74" width="50" height="15" forecolor="#736343" uuid="be5cc6f6-fcfe-4419-b4da-924614fba500"/>
+				<textElement>
+					<font fontName="Cambria" size="9"/>
+				</textElement>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="328" y="74" width="48" height="15" uuid="9d11929c-141b-4521-8fc0-19755b318a25"/>
+				<textElement>
+					<font fontName="Cambria" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoicesummery_balance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="268" y="55" width="51" height="13" forecolor="#736343" uuid="0070a8dd-6509-4473-bddf-762f3fed5447"/>
+				<textElement>
+					<font fontName="Cambria" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cash]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="329" y="53" width="50" height="15" uuid="fdc80d15-3eff-41a5-8ff4-3be891786f54"/>
+				<textElement>
+					<font fontName="Cambria" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoicesummery_cash}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="268" y="35" width="53" height="14" forecolor="#736343" uuid="3f4e8f6c-4ba1-4855-8e32-11678827f768"/>
+				<textElement>
+					<font fontName="Cambria" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Discount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="329" y="33" width="49" height="16" uuid="9a9c182e-23ec-46e8-88a4-a4614883277f"/>
+				<textElement>
+					<font fontName="Cambria" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoicesummery_cheque}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-19" y="0" width="400" height="24" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="c246b0df-87e2-45e2-b939-6068c6e74a47"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="359" y="0" width="40" height="20" forecolor="#736343" uuid="1e700da1-3401-4899-a56c-0dd24032f0be"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Cambria" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="279" y="0" width="80" height="20" forecolor="#736343" uuid="d1697183-6061-47e4-9cc3-c826a0e6327a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Cambria" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="19" y="4" width="253" height="20" uuid="275708a7-25e3-45b6-8e32-63c24bcd727a"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Software By ProGoLanka (pvt)Ltd *Contact(Sampath)-0716557953 ]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

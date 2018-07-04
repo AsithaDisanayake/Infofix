@@ -1,0 +1,123 @@
+%%Excelsior JET v11.0 project file
+
+-compilewithfixedheap-
+-genstackalloc+
+-genstacktrace-
+-global-
+-gui+
+-ignoreclassduplication+
+-ignorememberabsence+
+-inline+
+-jetcpenablemanualsettings+
+-multiapp-
+-splashgetfrommanifest-
+
+-apptype=Plain
+-classabsence=HANDLE
+-compilerheap=1744830464
+-inlinelimit=100
+-inlinetolimit=1000
+-jetcplastpage:=PageCompile
+-jetrt=Desktop
+-jetvmprop=-Djet.gc.heaplimit:0 -Djet.stack.trace
+-jpiiproject=C:\Users\kasun\Documents\NetBeansProjects\newbiz\Infofix.jpn
+-main=newbiz/Progress
+-outputdir=.
+-outputname=Infofix
+-saprofmode=JETCPONLY
+-saproftimeout=20
+-stacklimit=900000
+-startupprofile=./Infofix.startup
+-versioninfocompanyname=ProGolanka
+-versioninfofiledescription=Infofix
+-versioninfolegalcopyright=Copyright \x00a9 2016 ProGolanka
+-versioninfoproductname=Infofix
+-versioninfoproductversion=1.4.0.1
+
+
+
+
+!classpathentry ./dist/newbiz.jar
+  -pack=noncompiled
+  -protect=all
+  -optimize=all
+!end
+!classpathentry ./dist/lib/AbsoluteLayout.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/mysql-connector-java-5.1.23-bin.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/DateChooser.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/synthetica.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/syntheticaBatik.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/syntheticaSilverMoon.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/commons-beanutils-1.8.2.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/commons-collections-3.2.1.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/commons-dbcp-1.2.2.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/commons-digester-2.1.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/commons-javaflow-20060411.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/commons-logging-1.1.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/groovy-all-2.0.1.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/jasperreports-5.6.0.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+!classpathentry ./dist/lib/mysql-connector-java-5.1.36-bin.jar
+  -pack=noncompiled
+  -protect=nomatter
+  -optimize=all
+!end
+
+!module ../../../Desktop/infofix/logoo.ico
+!module ./Infofix.usg
+

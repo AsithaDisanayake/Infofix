@@ -1,0 +1,27 @@
+
+
+Version:	3.8
+CmdLine:	C:\Users\kasun\Documents\NetBeansProjects\newbiz\Infofix.exe --l4j-debug
+WOW64:		no
+Working dir:	C:\Users\kasun\Documents\NetBeansProjects\newbiz\.
+32-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.7
+Ignore:		1.7
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.7.0_21
+Ignore:		1.7.0_21
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files\Java\jre1.8.0_45\bin\javaw.exe (OK)
+Match:		1.8
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_45
+Check launcher:	C:\Program Files\Java\jre1.8.0_45\bin\javaw.exe (OK)
+Match:		1.8.0_45
+32-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.7
+Ignore:		1.7
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.7.0
+Ignore:		1.7.0
+Runtime used:	1.8.0_45 (32-bit)
+Launcher:	C:\Program Files\Java\jre1.8.0_45\bin\javaw.exe
+Launcher args:	-jar "C:\Users\kasun\Documents\NetBeansProjects\newbiz\Infofix.exe"
+Args length:	67/32768 chars
+Exit code:	0
